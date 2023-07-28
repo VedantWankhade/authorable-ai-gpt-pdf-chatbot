@@ -24,7 +24,8 @@ export default async function handler(
   }
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = question.trim().replaceAll('\n', ' ');
-
+  const optimizedQuery = "Give back a numbered ordered list of required playwright scripts to be invoked for executing the following operation: " + sanitizedQuestion;
+  console.log('optimizedQuery', optimizedQuery);
   try {
     const index = pinecone.Index(PINECONE_INDEX_NAME);
 
@@ -42,7 +43,7 @@ export default async function handler(
     const chain = makeChain(vectorStore);
     //Ask a question using chat history
     const response = await chain.call({
-      question: sanitizedQuestion,
+      question: optimizedQuery,
       chat_history: history || [],
     });
 

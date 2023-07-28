@@ -41,6 +41,12 @@ export default function Home() {
     textAreaRef.current?.focus();
   }, []);
 
+  const runScripts = async () => {
+    const req = await fetch("/api/scriptExecuter");
+    const data = await req.json();
+    console.log(data);
+  };
+
   //handle form submission
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -258,6 +264,7 @@ export default function Home() {
                 <p className="text-red-500">{error}</p>
               </div>
             )}
+            <button className={styles.generatebutton} onClick={runScripts}>Execute Shell Command</button>
           </main>
         </div>
         <footer className="m-auto p-4">
