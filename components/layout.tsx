@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header> */}
       <div>
-        <main className="flex w-full flex-1 flex-col overflow-hidden mt-4">
+        <main className="flex w-full flex-1 flex-col overflow-hidden mt-4" style={{color: "white" , background: 'black'}}>
           {children}
         </main>
       </div>

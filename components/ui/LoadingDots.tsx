@@ -1,7 +1,7 @@
 import styles from '@/styles/loading-dots.module.css';
 
 const LoadingDots = ({
-  color = '#000',
+  color = '#ffffff',
   style = 'small',
 }: {
   color: string;
