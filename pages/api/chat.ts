@@ -4,6 +4,9 @@ import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { makeChain } from '@/utils/makechain';
 import { pinecone } from '@/utils/pinecone-client';
 import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
+import { extractJSONObjectFromText, extractWordsStartingWithPS } from '@/utils/jsonExtractor';
+import createJSONFile from '@/utils/jsonFileCreator';
+
 
 export default async function handler(
   req: NextApiRequest,
@@ -24,7 +27,8 @@ export default async function handler(
   }
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = question.trim().replaceAll('\n', ' ');
-  const optimizedQuery = "Give back a numbered ordered list of required playwright scripts to be invoked for executing the following operation: " + sanitizedQuestion;
+  const optimizedQuery = "List all the required properties in json format with missing properties as empty string to run the following command(s) : " + sanitizedQuestion;
+  //const optimizedQuery = sanitizedQuestion;
   console.log('optimizedQuery', optimizedQuery);
   try {
     const index = pinecone.Index(PINECONE_INDEX_NAME);
@@ -47,10 +51,29 @@ export default async function handler(
       chat_history: history || [],
     });
 
-    console.log('response', response);
+    const jsonResponse = extractJSONObjectFromText(response.text);
+    console.log(jsonResponse);
+    if (jsonResponse) {
+      createJSONFile(jsonResponse, '/Users/karthik/Teaching/psForAEM/input.json');
+      const scriptResponse = await chain.call({
+        question: `What scripts need to be invoked - ${sanitizedQuestion}`,
+        chat_history: history || [],
+      });
+      const scriptsToRun = extractWordsStartingWithPS(scriptResponse.text);
+      console.log(scriptsToRun);
+    }
     res.status(200).json(response);
   } catch (error: any) {
     console.log('error', error);
     res.status(500).json({ error: error.message || 'Something went wrong' });
+  }
+}
+
+function isValidJSONObject(input: string): boolean {
+  try {
+    JSON.parse(input);
+    return true;
+  } catch (error) {
+    return false;
   }
 }

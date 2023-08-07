@@ -264,7 +264,6 @@ export default function Home() {
                 <p className="text-red-500">{error}</p>
               </div>
             )}
-            <button className={styles.generatebutton} onClick={runScripts}>Execute Shell Command</button>
           </main>
         </div>
         <footer className="m-auto p-4">

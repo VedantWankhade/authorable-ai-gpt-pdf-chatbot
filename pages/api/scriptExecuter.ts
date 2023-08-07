@@ -1,11 +1,20 @@
-import { execSync } from 'child_process'
+import { exec } from 'child_process';
 
-export default function scriptRunner(req, res) {
-  const output = execSync('sh ./test.sh', { encoding: 'utf-8' });  // the default is 'buffer'
-  const splitted = output.split(/\r?\n/);
-  const filtered = splitted.filter( e => {
-    return e !== '';
+function runBashScript(scriptPath: string, parameters: string[]): void {
+  const command = `${scriptPath} ${parameters.join(' ')}`;
+  
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error('Error:', error.message);
+      return;
+    }
+    
+    console.log('Standard Output:', stdout);
+    console.error('Standard Error:', stderr);
   });
-
-  res.status(200).json(JSON.stringify(filtered));
 }
+
+const scriptPath = './my_script.sh';
+const scriptParameters = ['param1', 'param2', 'param3'];
+
+runBashScript(scriptPath, scriptParameters);
