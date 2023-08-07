@@ -3,7 +3,17 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <style>
+          {
+            `
+              ::-webkit-scrollbar {
+                width: 20px;
+              }
+            `
+          }
+        </style>
+      </Head>
       <body>
         <Main />
         <NextScript />

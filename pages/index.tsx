@@ -134,7 +134,7 @@ export default function Home() {
             <div style={{display:"flex", justifyContent: "center"}}  >
             authorable.ai 
            
-              <Image
+              {/* <Image
                 key={'loading-key'}
                 src="/bot-image-white.png"
                 alt="AI"
@@ -143,7 +143,7 @@ export default function Home() {
                 className={styles.boticon}
                 style={{ margin: "0" }}
                 priority
-              />
+              /> */}
             </div>
           
            
