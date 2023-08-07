@@ -25,10 +25,11 @@
   padding: 1rem 2rem 1rem 2rem;
   width: 75vw;
   border-radius: 0.5rem;
-  border: 1px solid #d9d9e3;
-  background: #000000;
-  color: #ffffff;;
+  /* border: 1px solid #d9d9e3; */
+  background: hsl(197 6.8% 13.6%);
+  color: #b4a5a5;;
   outline: none;
+  box-shadow: 5px 5px 5px rgba(21, 21, 21, 0.25);
 }
 
 .textarea:disabled {
@@ -96,14 +97,14 @@
 }
 
 .usermessage {
-  background: #000000;
+  background: hsl(250 20.0% 10.2%);
   padding: 1.5rem;
-  color: #ffffff;;
+  color: #b4a5a5;;
 }
 
 .usermessagewaiting {
   padding: 1.5rem;
-  color: #ffffff;;
+  color: #b4a5a5;;
   background: linear-gradient(to left, #f8f7f638, #e5e3df24, #f8f7f636);
   background-size: 200% 200%;
   background-position: -100% 0;
@@ -122,9 +123,9 @@
 }
 
 .apimessage {
-  background: #000;
+  background: hsl(250 20.0% 10.2%);
   padding: 1.5rem;
-  color: #ffffff;
+  color: #b4a5a5;
   animation: fadein 0.5s;
 }
 
@@ -192,12 +193,14 @@
 .cloud {
   width: 75vw;
   height: 65vh;
-  background: #000;
+  background: hsl(250 20.0% 10.2%);
   border-radius: 0.5rem;
-  border: 1px solid #d9d9e3;
+  /* border: 1px solid #d9d9e3; */
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 5px 5px 5px rgba(21, 21, 21, 0.25);
+
 }
 
 .pointsnormal {
