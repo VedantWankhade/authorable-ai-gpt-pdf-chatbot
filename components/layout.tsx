@@ -15,7 +15,19 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header> */}
       <div>
-        <main className="flex w-full flex-1 flex-col overflow-hidden mt-4" style={{color: "white" , background: 'black'}}>
+        <main
+          className="flex w-full flex-1 flex-col overflow-hidden mt-4"
+          style={{
+            color: '#b4a5a5',
+            background:
+            'radial-gradient(ellipse at 100% 100%, hsl(254 100% 6% / 0.07), hsl(0 0% 0% / 0), transparent), linear-gradient(to bottom right, hsl(176 73.0% 7.3%), hsl(230 36.4% 12.9%), hsl(319 41.0% 16.0%), hsl(192 75.9% 10.8%))',
+             
+            margin: '0',
+            padding: '1rem',
+            height: '100vh',
+            overflow: 'auto',
+          }}
+        >
           {children}
         </main>
       </div>
