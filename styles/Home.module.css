@@ -100,6 +100,7 @@
   background: hsl(250 20.0% 10.2%);
   padding: 1.5rem;
   color: #b4a5a5;;
+  overflow-wrap: break-word;
 }
 
 .usermessagewaiting {
@@ -146,6 +147,7 @@
 
 .markdownanswer {
   line-height: 1.75;
+  overflow-x: auto;
 }
 
 .markdownanswer a:hover {

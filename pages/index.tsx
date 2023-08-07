@@ -166,7 +166,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/user-icon.jpg"
+                        src="/user-icon.png"
                         alt="Me"
                         width="30"
                         height="30"
@@ -274,7 +274,7 @@ export default function Home() {
                   >
                     {loading ? (
                       <div className={styles.loadingwheel}>
-                        <LoadingDots color="#b4a5a5" />
+                        <LoadingDots color="#EFE1D1" />
                       </div>
                     ) : (
                       // Send icon SVG in input field
