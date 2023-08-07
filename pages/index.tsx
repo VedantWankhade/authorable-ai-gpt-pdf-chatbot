@@ -133,17 +133,17 @@ export default function Home() {
           <h1  className="text-3xl font-bold leading-[1.1] tracking-tighter text-center" style={{ color: "#0072AC" }}>
             <div style={{display:"flex", justifyContent: "center"}}  >
             authorable.ai 
-           
-              {/* <Image
+            &nbsp;
+              <Image
                 key={'loading-key'}
-                src="/bot-image-white.png"
+                src="/robot.png"
                 alt="AI"
-                width="40"
-                height="40"
+                width="35"
+                height="35"
                 className={styles.boticon}
                 style={{ margin: "0" }}
                 priority
-              /> */}
+              />
             </div>
           
            
@@ -159,10 +159,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image-white.png"
+                        src="/robot.png"
                         alt="AI"
-                        width="40"
-                        height="40"
+                        width="35"
+                        height="35"
                         className={styles.boticon}
                         priority
                       />
@@ -172,10 +172,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/user-icon.png"
+                        src="/boy.png"
                         alt="Me"
-                        width="30"
-                        height="30"
+                        width="35"
+                        height="35"
                         className={styles.usericon}
                         priority
                       />
@@ -235,7 +235,7 @@ export default function Home() {
                   <div key={`chatMessage-loading`} className={styles.usermessagewaiting}>
                     <Image
                       key={'loading-key'}
-                      src="/bot-image-white.png"
+                      src="/robot.png"
                       alt="AI"
                       width="40"
                       height="40"

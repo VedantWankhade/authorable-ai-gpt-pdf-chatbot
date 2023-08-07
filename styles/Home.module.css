@@ -5,6 +5,8 @@
   align-items: center;
   padding: 1rem;
   font-size: 1.3rem;
+  /* backdrop-filter: blur(100px); */
+
 }
 
 .header {
@@ -31,6 +33,8 @@
   color: #b4a5a5;;
   outline: none;
   box-shadow: 5px 5px 5px rgba(21, 21, 21, 0.25);
+  /* backdrop-filter: blur(100px) !important; */
+  /* opacity: 0.2; */
 }
 
 .textarea:disabled {
@@ -102,6 +106,8 @@
   padding: 1.5rem;
   color: #b4a5a5;;
   overflow-wrap: break-word;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .usermessagewaiting {
@@ -144,6 +150,10 @@
 .usermessage,
 .usermessagewaiting {
   display: flex;
+  /* border-radius: 100px; */
+  box-shadow: 10px 10px rgba(25,25,25, 0.5);
+  opacity: 0.8;
+
 }
 
 .markdownanswer {
@@ -176,6 +186,8 @@
   margin-right: 1rem;
   border-radius: 0.1rem;
   height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .markdownanswer h1,
@@ -196,7 +208,7 @@
 .cloud {
   width: 75vw;
   height: 65vh;
-  background: hsl(250 20.0% 10.2%);
+  background: hsl(253, 20%, 19%);
   border-radius: 0.5rem;
   /* border: 1px solid #d9d9e3; */
   display: flex;
