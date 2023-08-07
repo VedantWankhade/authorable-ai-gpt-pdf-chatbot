@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about this document?',
+        message: 'Hi there 👋 ! I am here to help you with all your AEM authoring needs.',
         type: 'apiMessage',
       },
     ],
@@ -98,7 +98,6 @@ export default function Home() {
             {
               type: 'apiMessage',
               message: data.text,
-              sourceDocs: data.sourceDocuments,
             },
           ],
           history: [...state.history, [question, data.text]],
@@ -130,9 +129,26 @@ export default function Home() {
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Docs
+
+          <h1  className="text-3xl font-bold leading-[1.1] tracking-tighter text-center" style={{ color: "#0072AC" }}>
+            <div style={{display:"flex", justifyContent: "center"}}  >
+            authorable.ai 
+           
+              <Image
+                key={'loading-key'}
+                src="/bot-image-white.png"
+                alt="AI"
+                width="40"
+                height="40"
+                className={styles.boticon}
+                style={{ margin: "0" }}
+                priority
+              />
+            </div>
+          
+           
           </h1>
+          <h3 className=" font-bold leading-[1.1] tracking-tighter text-center">Content authoring made easy!</h3>
           <main className={styles.main}>
             <div className={styles.cloud}>
               <div ref={messageListRef} className={styles.messagelist}>
@@ -143,7 +159,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image.png"
+                        src="/bot-image-white.png"
                         alt="AI"
                         width="40"
                         height="40"
@@ -156,7 +172,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/usericon.png"
+                        src="/user-icon.png"
                         alt="Me"
                         width="30"
                         height="30"
@@ -165,10 +181,11 @@ export default function Home() {
                       />
                     );
                     // The latest message sent by the user will be animated while waiting for a response
-                    className =
-                      loading && index === messages.length - 1
-                        ? styles.usermessagewaiting
-                        : styles.usermessage;
+                    // className =
+                    //   loading && index === messages.length - 1
+                    //     ? styles.usermessagewaiting
+                    //     : styles.usermessage;
+                    className = styles.usermessage
                   }
                   return (
                     <>
@@ -213,6 +230,26 @@ export default function Home() {
                     </>
                   );
                 })}
+                {loading && (
+                  // <div ref={messageListRef} className={styles.messagelist}>
+                  <div key={`chatMessage-loading`} className={styles.usermessagewaiting}>
+                    <Image
+                      key={'loading-key'}
+                      src="/bot-image-white.png"
+                      alt="AI"
+                      width="40"
+                      height="40"
+                      className={styles.boticon}
+                      priority
+                    />
+                    <div className={styles.markdownanswer}>
+                      <ReactMarkdown linkTarget="_blank">
+                        {'Thinking...'}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
+                  // </div>
+                )}
               </div>
             </div>
             <div className={styles.center}>
@@ -230,7 +267,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What is this legal case about?'
+                        : 'Author a web page with a form and submit button.'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -243,7 +280,7 @@ export default function Home() {
                   >
                     {loading ? (
                       <div className={styles.loadingwheel}>
-                        <LoadingDots color="#000" />
+                        <LoadingDots color="#EFE1D1" />
                       </div>
                     ) : (
                       // Send icon SVG in input field
@@ -267,8 +304,8 @@ export default function Home() {
           </main>
         </div>
         <footer className="m-auto p-4">
-          <a href="https://twitter.com/mayowaoshin">
-            Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
+          <a>
+            ©GeekSyndrome
           </a>
         </footer>
       </Layout>
