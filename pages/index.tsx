@@ -41,6 +41,12 @@ export default function Home() {
     textAreaRef.current?.focus();
   }, []);
 
+  const runScripts = async () => {
+    const req = await fetch("/api/scriptExecuter");
+    const data = await req.json();
+    console.log(data);
+  };
+
   //handle form submission
   async function handleSubmit(e: any) {
     e.preventDefault();
