@@ -119,6 +119,7 @@
   animation: loading-gradient 2s ease-in-out infinite;
   animation-direction: alternate;
   animation-name: loading-gradient;
+  justify-content: center;
 }
 
 @keyframes loading-gradient {
@@ -188,6 +189,12 @@
   height: 100%;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.animatedLoading {
+  height: auto;
+  width: 160px;
+  
 }
 
 .markdownanswer h1,

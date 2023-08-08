@@ -136,7 +136,7 @@ export default function Home() {
             &nbsp;
               <Image
                 key={'loading-key'}
-                src="/robot.png"
+                src="/bot.png"
                 alt="AI"
                 width="35"
                 height="35"
@@ -159,7 +159,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/robot.png"
+                        src="/bot.png"
                         alt="AI"
                         width="35"
                         height="35"
@@ -172,7 +172,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/boy.png"
+                        src="/auditor.png"
                         alt="Me"
                         width="35"
                         height="35"
@@ -230,23 +230,26 @@ export default function Home() {
                     </>
                   );
                 })}
+                
                 {loading && (
                   // <div ref={messageListRef} className={styles.messagelist}>
                   <div key={`chatMessage-loading`} className={styles.usermessagewaiting}>
                     <Image
                       key={'loading-key'}
-                      src="/robot.png"
+                      // src="/loading-bar.webp"
+                      src="/bulb-loading.webp"
                       alt="AI"
                       width="40"
                       height="40"
-                      className={styles.boticon}
+                      className={`${styles.boticon} ${styles.animatedLoading}`}
                       priority
                     />
-                    <div className={styles.markdownanswer}>
+                    {/* <div style={{width:'100%',height:'0',paddingBottom:'66%',position:'relative'}}><iframe src="https://giphy.com/embed/hL9q5k9dk9l0wGd4e0" width="100%" height="100%" style={{position:'absolute'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/loading-vera-verreschi-hL9q5k9dk9l0wGd4e0">via GIPHY</a></p> */}
+                    {/* <div className={styles.markdownanswer}>
                       <ReactMarkdown linkTarget="_blank">
                         {'Thinking...'}
                       </ReactMarkdown>
-                    </div>
+                    </div> */}
                   </div>
                   // </div>
                 )}
