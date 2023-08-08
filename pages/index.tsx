@@ -72,6 +72,8 @@ export default function Home() {
     }));
 
     setLoading(true);
+    messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
+
     setQuery('');
 
     try {
