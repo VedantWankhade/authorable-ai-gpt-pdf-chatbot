@@ -139,7 +139,7 @@ export default function Home() {
             &nbsp;
               <Image
                 key={'loading-key'}
-                src="/bot.png"
+                src="/articleb.gif"
                 alt="AI"
                 width="35"
                 height="35"
@@ -162,7 +162,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot.png"
+                        src="/bot64.png"
                         alt="AI"
                         width="35"
                         height="35"
@@ -273,7 +273,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'Author a web page with a form and submit button.'
+                        : 'Our AI bot is ready to pounce... your wish is our command'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}

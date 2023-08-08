@@ -28,6 +28,7 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.idea
 
 # vercel
 .vercel
@@ -38,3 +39,6 @@ next-env.d.ts
 
 #Notion_db
 /Notion_DB
+
+*.lock
+

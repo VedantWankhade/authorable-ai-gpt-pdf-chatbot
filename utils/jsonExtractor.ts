@@ -33,7 +33,8 @@ export function extractJSONObjectFromText(text: string): object | null {
 
   export function extractWordsStartingWithPS(text: string): string[] {
     const words = text.split(/\s+/);
-    const psWords = words.filter(word => word.startsWith('ps_'));
+    const psWords = words.filter(word => word.indexOf('ps_') > -1);
+    psWords && psWords.forEach(word => word.replace(/[^a-zA-Z0-9_]/g, ''));
     return psWords;
   }
   
