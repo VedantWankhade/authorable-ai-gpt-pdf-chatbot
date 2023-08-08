@@ -123,6 +123,7 @@ export default function Home() {
     } else if (e.key == 'Enter') {
       e.preventDefault();
     }
+    messageListRef.current?.scrollIntoView({behavior:'smooth'})
   };
 
   return (
@@ -277,6 +278,7 @@ export default function Home() {
                     type="submit"
                     disabled={loading}
                     className={styles.generatebutton}
+                    
                   >
                     {loading ? (
                       <div className={styles.loadingwheel}>
