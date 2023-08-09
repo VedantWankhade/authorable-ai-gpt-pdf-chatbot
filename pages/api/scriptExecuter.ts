@@ -1,20 +1,15 @@
 import { exec } from 'child_process';
 
-function runBashScript(scriptPath: string, parameters: string[]): void {
+export default function runBashScript(scriptPath: string, parameters: string[]): number {
   const command = `${scriptPath} ${parameters.join(' ')}`;
-  
+  let result  = 1;
   exec(command, (error, stdout, stderr) => {
     if (error) {
       console.error('Error:', error.message);
-      return;
-    }
-    
+      result =  0;
+    } 
     console.log('Standard Output:', stdout);
-    console.error('Standard Error:', stderr);
+    result = 1
   });
+  return result;
 }
-
-const scriptPath = './my_script.sh';
-const scriptParameters = ['param1', 'param2', 'param3'];
-
-runBashScript(scriptPath, scriptParameters);

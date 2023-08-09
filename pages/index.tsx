@@ -72,6 +72,8 @@ export default function Home() {
     }));
 
     setLoading(true);
+    messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
+
     setQuery('');
 
     try {
@@ -123,6 +125,7 @@ export default function Home() {
     } else if (e.key == 'Enter') {
       e.preventDefault();
     }
+    messageListRef.current?.scrollIntoView({behavior:'smooth'})
   };
 
   return (
@@ -133,13 +136,13 @@ export default function Home() {
           <h1  className="text-3xl font-bold leading-[1.1] tracking-tighter text-center" style={{ color: "#0072AC" }}>
             <div style={{display:"flex", justifyContent: "center"}}  >
             authorable.ai 
-           
+            &nbsp;
               <Image
                 key={'loading-key'}
-                src="/bot-image-white.png"
+                src="/articleb.gif"
                 alt="AI"
-                width="40"
-                height="40"
+                width="35"
+                height="35"
                 className={styles.boticon}
                 style={{ margin: "0" }}
                 priority
@@ -159,10 +162,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image-white.png"
+                        src="/bot64.png"
                         alt="AI"
-                        width="40"
-                        height="40"
+                        width="35"
+                        height="35"
                         className={styles.boticon}
                         priority
                       />
@@ -172,10 +175,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/user-icon.png"
+                        src="/auditor.png"
                         alt="Me"
-                        width="30"
-                        height="30"
+                        width="35"
+                        height="35"
                         className={styles.usericon}
                         priority
                       />
@@ -230,23 +233,26 @@ export default function Home() {
                     </>
                   );
                 })}
+                
                 {loading && (
                   // <div ref={messageListRef} className={styles.messagelist}>
                   <div key={`chatMessage-loading`} className={styles.usermessagewaiting}>
                     <Image
                       key={'loading-key'}
-                      src="/bot-image-white.png"
+                      // src="/loading-bar.webp"
+                      src="/bulb-loading.webp"
                       alt="AI"
                       width="40"
                       height="40"
-                      className={styles.boticon}
+                      className={`${styles.boticon} ${styles.animatedLoading}`}
                       priority
                     />
-                    <div className={styles.markdownanswer}>
+                    {/* <div style={{width:'100%',height:'0',paddingBottom:'66%',position:'relative'}}><iframe src="https://giphy.com/embed/hL9q5k9dk9l0wGd4e0" width="100%" height="100%" style={{position:'absolute'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/loading-vera-verreschi-hL9q5k9dk9l0wGd4e0">via GIPHY</a></p> */}
+                    {/* <div className={styles.markdownanswer}>
                       <ReactMarkdown linkTarget="_blank">
                         {'Thinking...'}
                       </ReactMarkdown>
-                    </div>
+                    </div> */}
                   </div>
                   // </div>
                 )}
@@ -267,7 +273,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'Author a web page with a form and submit button.'
+                        : 'Our AI bot is ready to pounce... your wish is our command'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -277,6 +283,7 @@ export default function Home() {
                     type="submit"
                     disabled={loading}
                     className={styles.generatebutton}
+                    
                   >
                     {loading ? (
                       <div className={styles.loadingwheel}>

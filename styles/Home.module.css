@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  font-size: 1rem;
+  /* backdrop-filter: blur(100px); */
+
 }
 
 .header {
@@ -21,7 +24,7 @@
 .textarea {
   position: relative;
   resize: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 1rem 2rem 1rem 2rem;
   width: 75vw;
   border-radius: 0.5rem;
@@ -29,7 +32,9 @@
   background: hsl(197 6.8% 13.6%);
   color: #b4a5a5;;
   outline: none;
-  box-shadow: 5px 5px 5px rgba(21, 21, 21, 0.25);
+  box-shadow: 2px 2px 2px rgba(21, 21, 21, 0.25);
+  /* backdrop-filter: blur(100px) !important; */
+  /* opacity: 0.2; */
 }
 
 .textarea:disabled {
@@ -39,7 +44,7 @@
 .textarea:focus {
   outline: none;
   border-color: #948d7f;
-  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
+  box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5);
 }
 
 .textarea::placeholder {
@@ -101,6 +106,8 @@
   padding: 1.5rem;
   color: #b4a5a5;;
   overflow-wrap: break-word;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .usermessagewaiting {
@@ -112,6 +119,7 @@
   animation: loading-gradient 2s ease-in-out infinite;
   animation-direction: alternate;
   animation-name: loading-gradient;
+  justify-content: center;
 }
 
 @keyframes loading-gradient {
@@ -143,6 +151,10 @@
 .usermessage,
 .usermessagewaiting {
   display: flex;
+  /* border-radius: 100px; */
+  /* box-shadow: 2px 2px rgba(25,25,25, 0.5); */
+  /* opacity: 0.8; */
+  align-items: center;
 }
 
 .markdownanswer {
@@ -174,7 +186,15 @@
 .usericon {
   margin-right: 1rem;
   border-radius: 0.1rem;
-  height: 100%;
+  height: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.animatedLoading {
+  height: auto;
+  width: 160px;
+  
 }
 
 .markdownanswer h1,
@@ -195,7 +215,7 @@
 .cloud {
   width: 75vw;
   height: 65vh;
-  background: hsl(250 20.0% 10.2%);
+  background: hsl(253, 20%, 19%);
   border-radius: 0.5rem;
   /* border: 1px solid #d9d9e3; */
   display: flex;
